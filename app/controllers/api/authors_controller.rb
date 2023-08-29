@@ -28,7 +28,7 @@ class Api::AuthorsController < ApplicationController
   def show_premium
     author = Author.where("id = ?", params[:id])
     if author != []
-      if params[:only_premium] and params[:only_premium] == "true"
+      if params[:only_premium] == "true"
         articles = Article.where("author_id = ? and premium = true", params[:id])
         render json: {
           author: author,
